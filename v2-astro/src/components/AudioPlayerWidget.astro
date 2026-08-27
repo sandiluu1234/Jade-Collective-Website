@@ -9,17 +9,17 @@ const uid = crypto.randomUUID().slice(0, 8);
 ---
 
 <div class={`audio-widget relative mx-auto w-full max-w-md pb-9 ${className}`} data-audio-widget>
-  <div class="flex items-center gap-4 rounded-[28px] border border-stone bg-bone/80 px-5 py-4 shadow-[0_1px_0_0_rgba(38,36,31,0.06)] backdrop-blur sm:gap-5 sm:px-6 sm:py-5">
-    <span class="dial h-11 w-11 shrink-0 rounded-full border-2 border-ink/70 sm:h-14 sm:w-14" aria-hidden="true">
-      <span class="block h-full w-full rounded-full border border-ink/30" style="margin: 22%;"></span>
+  <div class="flex items-center gap-4 rounded-[28px] border border-stone bg-cream/80 px-5 py-4 shadow-[0_1px_0_0_rgba(43,38,32,0.06)] backdrop-blur sm:gap-5 sm:px-6 sm:py-5">
+    <span class="dial h-11 w-11 shrink-0 rounded-full border-2 border-espresso/70 sm:h-14 sm:w-14" aria-hidden="true">
+      <span class="block h-full w-full rounded-full border border-espresso/30" style="margin: 22%;"></span>
     </span>
 
     <div class="min-w-0 flex-1">
-      <p class="truncate font-body text-xs font-medium uppercase tracking-[0.14em] text-ink/70">
+      <p class="truncate font-body text-xs font-medium uppercase tracking-[0.14em] text-espresso/70">
         {caption}
       </p>
       <div class="mt-2 flex items-center gap-3">
-        <span class="w-9 shrink-0 font-body text-[11px] tabular-nums text-ink/60" data-current-time>0:00</span>
+        <span class="w-9 shrink-0 font-body text-[11px] tabular-nums text-espresso/60" data-current-time>0:00</span>
         <input
           type="range"
           class="progress-range w-full"
@@ -30,18 +30,18 @@ const uid = crypto.randomUUID().slice(0, 8);
           aria-label={`Seek — ${caption}`}
           data-progress
         />
-        <span class="w-9 shrink-0 text-right font-body text-[11px] tabular-nums text-ink/60" data-duration>0:00</span>
+        <span class="w-9 shrink-0 text-right font-body text-[11px] tabular-nums text-espresso/60" data-duration>0:00</span>
       </div>
     </div>
 
-    <span class="dial h-11 w-11 shrink-0 rounded-full border-2 border-ink/70 sm:h-14 sm:w-14" aria-hidden="true">
-      <span class="block h-full w-full rounded-full border border-ink/30" style="margin: 22%;"></span>
+    <span class="dial h-11 w-11 shrink-0 rounded-full border-2 border-espresso/70 sm:h-14 sm:w-14" aria-hidden="true">
+      <span class="block h-full w-full rounded-full border border-espresso/30" style="margin: 22%;"></span>
     </span>
   </div>
 
   <button
     type="button"
-    class="play-btn absolute bottom-0 left-1/2 flex h-14 w-14 -translate-x-1/2 translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-ink text-bone shadow-md transition-transform duration-200 hover:scale-105"
+    class="play-btn absolute bottom-0 left-1/2 flex h-14 w-14 -translate-x-1/2 translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-espresso text-cream shadow-md transition-transform duration-200 hover:scale-105"
     aria-pressed="false"
     aria-label={`Play — ${caption}`}
     data-play-btn
@@ -72,7 +72,7 @@ const uid = crypto.randomUUID().slice(0, 8);
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--color-ink);
+    background: var(--color-espresso);
     cursor: pointer;
   }
   .progress-range::-moz-range-thumb {
@@ -80,7 +80,7 @@ const uid = crypto.randomUUID().slice(0, 8);
     height: 12px;
     border: none;
     border-radius: 50%;
-    background: var(--color-ink);
+    background: var(--color-espresso);
     cursor: pointer;
   }
   .audio-widget[data-playing="true"] .dial {

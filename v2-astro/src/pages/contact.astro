@@ -6,68 +6,79 @@ import Layout from "../layouts/Layout.astro";
   <section class="mx-auto max-w-content px-6 py-20 sm:px-8 sm:py-28">
     <div class="grid gap-16 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="max-w-lg">
-        <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+        <h1 class="text-4xl font-semibold leading-tight text-espresso sm:text-5xl">
           Let&rsquo;s talk.
         </h1>
-        <p class="mt-6 text-lg leading-relaxed text-ink/80">
+        <p class="mt-6 text-lg leading-relaxed text-espresso/80">
           Whether you&rsquo;re a creator looking for management or a brand
           hoping to work with one of ours, I&rsquo;d love to hear from you.
         </p>
 
         <div class="mt-10 space-y-8 border-t border-stone/60 pt-10">
           <div>
-            <h2 class="font-display text-xl font-semibold text-ink">
+            <h2 class="font-display text-xl font-semibold text-espresso">
               For creators
             </h2>
-            <p class="mt-2 text-base leading-relaxed text-ink/75">
+            <p class="mt-2 text-base leading-relaxed text-espresso/75">
               Tell me a little about you, what you make, and where
               you&rsquo;re headed. I take on a small number of clients at a
               time, so I read every application personally.
             </p>
           </div>
           <div>
-            <h2 class="font-display text-xl font-semibold text-ink">
+            <h2 class="font-display text-xl font-semibold text-espresso">
               For brands
             </h2>
-            <p class="mt-2 text-base leading-relaxed text-ink/75">
+            <p class="mt-2 text-base leading-relaxed text-espresso/75">
               Looking to partner with authentic micro creators? Let me know
               what you have in mind.
             </p>
           </div>
         </div>
+
+        <dl class="mt-10 space-y-4 border-t border-stone/60 pt-10 font-body text-sm">
+          <div>
+            <dt class="uppercase tracking-[0.12em] text-espresso/60">Email</dt>
+            <dd class="mt-1 text-lg text-espresso">partnerships@jadecollectiveagency.com</dd>
+          </div>
+          <div>
+            <dt class="uppercase tracking-[0.12em] text-espresso/60">Location</dt>
+            <dd class="mt-1 text-lg text-espresso">San Diego, CA</dd>
+          </div>
+        </dl>
       </div>
 
       <form id="contact-form" class="border border-stone/60 p-8 sm:p-10">
         <div id="form-fields" class="grid gap-6">
           <div class="grid gap-6 sm:grid-cols-2">
             <div>
-              <label for="name" class="mb-1.5 block font-body text-sm text-ink/80">
-                Name <span class="text-clay">*</span>
+              <label for="name" class="mb-1.5 block font-body text-sm text-espresso/80">
+                Name <span class="text-terracotta">*</span>
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
                 required
-                class="w-full rounded-sm border border-stone bg-bone px-4 py-3 text-ink outline-none transition-colors duration-200 focus:border-jade"
+                class="w-full rounded-sm border border-stone bg-cream px-4 py-3 text-espresso outline-none transition-colors duration-200 focus:border-olive"
               />
             </div>
             <div>
-              <label for="email" class="mb-1.5 block font-body text-sm text-ink/80">
-                Email <span class="text-clay">*</span>
+              <label for="email" class="mb-1.5 block font-body text-sm text-espresso/80">
+                Email <span class="text-terracotta">*</span>
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                class="w-full rounded-sm border border-stone bg-bone px-4 py-3 text-ink outline-none transition-colors duration-200 focus:border-jade"
+                class="w-full rounded-sm border border-stone bg-cream px-4 py-3 text-espresso outline-none transition-colors duration-200 focus:border-olive"
               />
             </div>
           </div>
 
           <div>
-            <label for="handle" class="mb-1.5 block font-body text-sm text-ink/80">
+            <label for="handle" class="mb-1.5 block font-body text-sm text-espresso/80">
               Instagram / TikTok handle
             </label>
             <input
@@ -75,18 +86,18 @@ import Layout from "../layouts/Layout.astro";
               name="handle"
               type="text"
               placeholder="@yourhandle"
-              class="w-full rounded-sm border border-stone bg-bone px-4 py-3 text-ink outline-none transition-colors duration-200 focus:border-jade"
+              class="w-full rounded-sm border border-stone bg-cream px-4 py-3 text-espresso outline-none transition-colors duration-200 focus:border-olive"
             />
           </div>
 
           <div>
-            <label for="role" class="mb-1.5 block font-body text-sm text-ink/80">
+            <label for="role" class="mb-1.5 block font-body text-sm text-espresso/80">
               I&rsquo;m a&hellip;
             </label>
             <select
               id="role"
               name="role"
-              class="w-full rounded-sm border border-stone bg-bone px-4 py-3 text-ink outline-none transition-colors duration-200 focus:border-jade"
+              class="w-full rounded-sm border border-stone bg-cream px-4 py-3 text-espresso outline-none transition-colors duration-200 focus:border-olive"
             >
               <option value="creator">Creator</option>
               <option value="brand">Brand</option>
@@ -94,29 +105,29 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <div>
-            <label for="message" class="mb-1.5 block font-body text-sm text-ink/80">
-              Tell me a bit more <span class="text-clay">*</span>
+            <label for="message" class="mb-1.5 block font-body text-sm text-espresso/80">
+              Tell me a bit more <span class="text-terracotta">*</span>
             </label>
             <textarea
               id="message"
               name="message"
               required
               rows={5}
-              class="w-full rounded-sm border border-stone bg-bone px-4 py-3 text-ink outline-none transition-colors duration-200 focus:border-jade"
+              class="w-full rounded-sm border border-stone bg-cream px-4 py-3 text-espresso outline-none transition-colors duration-200 focus:border-olive"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="cursor-pointer justify-self-start rounded-sm bg-ink px-8 py-3.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade"
+            class="cursor-pointer justify-self-start rounded-sm bg-espresso px-8 py-3.5 font-body text-sm font-medium text-cream transition-colors duration-200 hover:bg-olive"
           >
             Send message
           </button>
         </div>
 
         <div id="form-success" class="hidden py-10 text-center" role="status">
-          <p class="font-display text-2xl font-semibold text-ink">Thank you.</p>
-          <p class="mt-2 text-sm text-ink/70">
+          <p class="font-display text-2xl font-semibold text-espresso">Thank you.</p>
+          <p class="mt-2 text-sm text-espresso/70">
             We&rsquo;ve received your message and will be in touch soon.
           </p>
         </div>

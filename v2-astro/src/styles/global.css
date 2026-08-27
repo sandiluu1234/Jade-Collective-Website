@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #f3efe7;
-  --color-ink: #26241f;
-  --color-jade: #3f5a4c;
-  --color-jade-dark: #324a3e;
-  --color-clay: #b67e63;
-  --color-stone: #c7beae;
+  /* Japandi Organic palette — matches site 1 */
+  --color-cream: #faf8f3;
+  --color-stone: #cbbfa4;
+  --color-terracotta: #b25e3d;
+  --color-terracotta-dark: #984e32;
+  --color-sage: #a6b489;
+  --color-olive: #5b6740;
+  --color-olive-dark: #454e30;
+  --color-espresso: #2b2620;
 
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
 
   --max-width-content: 1180px;
@@ -20,7 +23,7 @@
   }
 
   body {
-    @apply bg-bone text-ink font-body antialiased;
+    @apply bg-cream text-espresso font-body antialiased;
   }
 
   h1,
@@ -30,11 +33,11 @@
   }
 
   ::selection {
-    @apply bg-jade text-bone;
+    @apply bg-olive text-cream;
   }
 
   :focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-jade;
+    @apply outline outline-2 outline-offset-2 outline-olive;
   }
 }
 
