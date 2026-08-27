@@ -32,68 +32,74 @@ const talent: TalentEntry[] = [
 ---
 
 <Layout title="Talent | Jade Collective">
-  <section class="mx-auto max-w-content px-6 py-20 sm:px-8 sm:py-28">
-    <div class="max-w-2xl">
-      <p class="mb-3 font-body text-sm uppercase tracking-[0.2em] text-olive">
-        The roster
-      </p>
-      <h1 class="text-4xl font-semibold leading-tight text-espresso sm:text-5xl">
-        Talent we&rsquo;re proud to represent.
-      </h1>
-      <p class="mt-6 text-lg leading-relaxed text-espresso/80">
-        A small, intentional roster — every creator here gets hands-on
-        management, not a rotating cast of assistants.
-      </p>
-    </div>
+  <section class="bg-cream-alt">
+    <div class="mx-auto max-w-content px-6 py-20 sm:px-8 sm:py-28">
+      <div class="max-w-2xl">
+        <p class="mb-3 font-body text-sm uppercase tracking-[0.2em] text-olive">
+          The roster
+        </p>
+        <h1 class="text-4xl font-semibold leading-tight text-espresso sm:text-5xl">
+          Talent we&rsquo;re proud to represent.
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-espresso/80">
+          A small, intentional roster — every creator here gets hands-on
+          management, not a rotating cast of assistants.
+        </p>
+      </div>
 
-    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {talent.map((person, index) => (
-        <div key={`${person.name}-${index}`}>
-          <div class="overflow-hidden rounded-sm border border-stone/60">
-            {person.photo ? (
-              <img
-                src={person.photo}
-                alt={person.name}
-                width="480"
-                height="600"
-                class="aspect-[4/5] w-full object-cover"
-              />
-            ) : (
-              <div
-                class:list={[
-                  "flex aspect-[4/5] w-full flex-col items-center justify-center gap-1 text-center",
-                  person.openSlot ? "bg-stone/40 text-espresso/60" : "bg-sage/50 text-espresso",
-                ]}
-              >
-                <span class="font-display text-lg">{person.name}</span>
-                <span class="text-xs uppercase tracking-[0.15em] opacity-80">
-                  {person.openSlot ? "Open slot" : "Photo coming soon"}
-                </span>
-              </div>
-            )}
+      <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {talent.map((person, index) => (
+          <div key={`${person.name}-${index}`}>
+            <div class="overflow-hidden rounded-sm border border-stone/60">
+              {person.photo ? (
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  width="480"
+                  height="600"
+                  class="aspect-[4/5] w-full object-cover"
+                />
+              ) : (
+                <div
+                  class:list={[
+                    "flex aspect-[4/5] w-full flex-col items-center justify-center gap-1 text-center",
+                    person.openSlot ? "bg-stone/40 text-espresso/60" : "bg-sage/50 text-espresso",
+                  ]}
+                >
+                  <span class="font-display text-lg">{person.name}</span>
+                  <span class="text-xs uppercase tracking-[0.15em] opacity-80">
+                    {person.openSlot ? "Open slot" : "Photo coming soon"}
+                  </span>
+                </div>
+              )}
+            </div>
+            <div class="mt-4">
+              <h3 class="font-display text-xl text-espresso">{person.name}</h3>
+              <p class="font-body text-sm uppercase tracking-[0.1em] text-terracotta-dark">
+                {person.role}
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-espresso/75">{person.bio}</p>
+            </div>
           </div>
-          <div class="mt-4">
-            <h3 class="font-display text-xl text-espresso">{person.name}</h3>
-            <p class="font-body text-sm uppercase tracking-[0.1em] text-terracotta-dark">
-              {person.role}
-            </p>
-            <p class="mt-2 text-sm leading-relaxed text-espresso/75">{person.bio}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
+  </section>
 
-    <div class="mt-16 max-w-2xl border-t border-stone/60 pt-12">
-      <p class="text-lg leading-relaxed text-espresso/80">
-        Think you&rsquo;d be a fit for the roster? I take on a limited
-        number of creators at a time.
-      </p>
-      <a
-        href="/contact"
-        class="mt-6 inline-block cursor-pointer rounded-sm bg-olive px-7 py-3.5 font-body text-sm font-medium text-cream transition-colors duration-200 hover:bg-olive-dark"
-      >
-        Apply to join
-      </a>
+  <section class="bg-olive text-cream">
+    <div class="mx-auto max-w-content px-6 py-16 sm:px-8">
+      <div class="max-w-2xl">
+        <p class="text-lg leading-relaxed text-cream/85">
+          Think you&rsquo;d be a fit for the roster? I take on a limited
+          number of creators at a time.
+        </p>
+        <a
+          href="/contact"
+          class="mt-6 inline-block cursor-pointer rounded-sm bg-cream px-7 py-3.5 font-body text-sm font-medium text-espresso transition-colors duration-200 hover:bg-cream-alt"
+        >
+          Apply to join
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

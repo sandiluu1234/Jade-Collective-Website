@@ -6,10 +6,12 @@
      terracotta-dark is a darkened, WCAG-AA-checked variant for small text;
      the base terracotta stays true to the swatch for decorative use. */
   --color-cream: #efede9;
+  --color-cream-alt: #e4decb;
   --color-stone: #c7bcac;
   --color-terracotta: #a96e52;
   --color-terracotta-dark: #83553f;
   --color-sage: #9b9e7f;
+  --color-sage-light: #b9bba5;
   --color-olive: #606248;
   --color-olive-dark: #50523c;
   --color-espresso: #504841;
