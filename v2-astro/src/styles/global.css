@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #f3efe7;
+  --color-ink: #26241f;
+  --color-jade: #3f5a4c;
+  --color-jade-dark: #324a3e;
+  --color-clay: #b67e63;
+  --color-stone: #c7beae;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --max-width-content: 1180px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bone text-ink font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-jade text-bone;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-jade;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

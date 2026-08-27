@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    title: "Talent Representation",
+    body: "I become your dedicated manager and point of contact. That means fielding inbound opportunities, pitching you to brands that fit, protecting your time, and making sure the right people know your name. You get a partner who's genuinely invested in where your career goes.",
+  },
+  {
+    title: "Brand Partnerships & Deals",
+    body: "The part most creators dread, handled. I source partnerships aligned with your voice, negotiate rates that reflect your real value, review the contracts, and manage the back-and-forth from first email to final invoice. No more undercharging. No more guessing.",
+  },
+  {
+    title: "Strategy & Creative Direction",
+    body: "Beyond the deals, we build the bigger picture — your positioning, your niche, your content direction, and a growth plan with actual intention behind it. A clear point of view is what turns a creator into a brand.",
+  },
+  {
+    title: "Career & Business Support",
+    body: "The unglamorous essentials: rate cards, invoicing guidance, deliverable tracking, and the steady advice that keeps your business running smoothly behind the scenes.",
+  },
+];
+---
+
+<Layout title="Services | Jade Collective">
+  <section class="mx-auto max-w-content px-6 py-20 sm:px-8 sm:py-28">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl font-semibold leading-tight text-ink sm:text-5xl">
+        How we work together.
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed text-ink/80">
+        Every creator is different, so management is tailored — but
+        here&rsquo;s the shape of what I do.
+      </p>
+    </div>
+
+    <div class="mt-16 divide-y divide-stone/60 border-t border-stone/60">
+      {services.map((service) => (
+        <div class="grid gap-4 py-10 sm:grid-cols-[minmax(0,280px)_1fr] sm:gap-10">
+          <h2 class="font-display text-2xl font-semibold text-ink">
+            {service.title}
+          </h2>
+          <p class="max-w-2xl text-base leading-relaxed text-ink/80">
+            {service.body}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 max-w-2xl border-t border-stone/60 pt-12">
+      <p class="text-lg leading-relaxed text-ink/80">
+        I take on a limited roster so every creator gets real attention. If
+        you&rsquo;re ready for a manager in your corner, let&rsquo;s talk.
+      </p>
+      <a
+        href="/contact"
+        class="mt-6 inline-block cursor-pointer rounded-sm bg-jade px-7 py-3.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark"
+      >
+        Apply to work together
+      </a>
+    </div>
+  </section>
+</Layout>

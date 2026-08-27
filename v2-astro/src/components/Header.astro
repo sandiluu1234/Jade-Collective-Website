@@ -1,0 +1,71 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
+const current = Astro.url.pathname;
+---
+
+<header class="border-b border-stone/60">
+  <div class="mx-auto flex max-w-content items-center justify-between px-6 py-6 sm:px-8">
+    <a href="/" class="font-display text-xl font-semibold tracking-tight text-ink cursor-pointer">
+      Jade Collective
+    </a>
+    <nav class="hidden items-center gap-10 md:flex">
+      {links.map((link) => {
+        const active = current === link.href;
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "font-body text-sm tracking-wide transition-colors duration-200 cursor-pointer",
+              active ? "text-jade" : "text-ink/80 hover:text-jade",
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+    <a
+      href="/contact"
+      class="hidden rounded-sm bg-jade px-5 py-2.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark sm:inline-block cursor-pointer"
+    >
+      Work with us
+    </a>
+    <button
+      type="button"
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open menu"
+      class="cursor-pointer p-2 text-ink md:hidden"
+    >
+      <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+  <nav id="mobile-menu" class="hidden flex-col border-t border-stone/60 px-6 py-4 md:hidden">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class="cursor-pointer border-b border-stone/40 py-3 font-body text-base text-ink last:border-b-0"
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("flex");
+    menu?.classList.toggle("hidden");
+    toggle.setAttribute("aria-expanded", String(!!isOpen));
+  });
+</script>

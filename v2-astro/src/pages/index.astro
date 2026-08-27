@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+  {
+    title: "Representation",
+    body: "We become your team — fielding inbound, pitching you to the right brands, and making sure your name is in the rooms that matter.",
+  },
+  {
+    title: "Brand Partnerships",
+    body: "From sourcing to signed contract, we find deals that fit your voice and negotiate rates that respect your worth.",
+  },
+  {
+    title: "Strategy & Direction",
+    body: "Positioning, content direction, and growth planning — a clear point of view for where your brand goes next.",
+  },
+];
+---
+
+<Layout title="Jade Collective | Talent Management for Micro Creators">
+  <!-- Hero -->
+  <section class="mx-auto max-w-content px-6 pb-20 pt-20 sm:px-8 sm:pt-28">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl font-semibold leading-[1.08] text-ink sm:text-6xl lg:text-7xl">
+        For the creators the world hasn&rsquo;t caught onto yet.
+      </h1>
+      <p class="mt-7 max-w-xl text-lg leading-relaxed text-ink/80">
+        Jade Collective is a boutique talent management studio for micro
+        creators. I&rsquo;m here to handle the brand deals, the negotiations,
+        and the strategy — so you can stay focused on the work only you can
+        make.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-8">
+        <a
+          href="/contact"
+          class="cursor-pointer rounded-sm bg-jade px-7 py-3.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark"
+        >
+          Work with us
+        </a>
+        <a
+          href="/services"
+          class="cursor-pointer font-body text-sm font-medium text-ink underline decoration-stone underline-offset-4 transition-colors duration-200 hover:text-jade hover:decoration-jade"
+        >
+          See how it works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="mx-auto max-w-content border-stone/60" />
+
+  <!-- Positioning -->
+  <section class="mx-auto max-w-content px-6 py-20 sm:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+        You don&rsquo;t need a million followers to build a real business.
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-ink/80">
+        Micro creators are where brands are actually paying attention —
+        engaged audiences, real trust, genuine influence. But most talent
+        agencies only look up. We look closer. Jade Collective gives small
+        and growing creators the kind of thoughtful, hands-on management
+        usually reserved for the top of the industry.
+      </p>
+    </div>
+  </section>
+
+  <hr class="mx-auto max-w-content border-stone/60" />
+
+  <!-- Services preview -->
+  <section class="mx-auto max-w-content px-6 py-20 sm:px-8">
+    <div class="grid gap-12 sm:grid-cols-3 sm:gap-8">
+      {services.map((service) => (
+        <div>
+          <h3 class="font-display text-2xl font-semibold text-ink">
+            {service.title}
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink/75">
+            {service.body}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="mx-auto max-w-content border-stone/60" />
+
+  <!-- About preview -->
+  <section class="mx-auto max-w-content px-6 py-20 sm:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+        Hi, I&rsquo;m Jade — a talent manager who believes small creators
+        deserve big representation.
+      </h2>
+      <p class="mt-6 text-lg leading-relaxed text-ink/80">
+        I started Jade Collective because I kept seeing talented micro
+        creators undercharge, get overlooked, and burn out doing the
+        business side alone. I&rsquo;m here to carry that weight — and to
+        build careers with intention, taste, and the long game in mind.
+      </p>
+      <a
+        href="/about"
+        class="mt-7 inline-block cursor-pointer font-body text-sm font-medium text-ink underline decoration-stone underline-offset-4 transition-colors duration-200 hover:text-jade hover:decoration-jade"
+      >
+        More about Jade
+      </a>
+    </div>
+  </section>
+
+  <hr class="mx-auto max-w-content border-stone/60" />
+
+  <!-- Social proof placeholder -->
+  <section class="mx-auto max-w-content px-6 py-20 sm:px-8">
+    <blockquote class="max-w-2xl border-l-2 border-clay pl-6 font-display text-xl italic leading-relaxed text-ink/85 sm:text-2xl">
+      &ldquo;Add 1–3 short creator testimonials here once you have them —
+      even a single line about a deal you landed or how it felt to finally
+      have support goes a long way.&rdquo;
+    </blockquote>
+  </section>
+
+  <hr class="mx-auto max-w-content border-stone/60" />
+
+  <!-- Final CTA -->
+  <section class="mx-auto max-w-content px-6 py-24 sm:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-semibold leading-tight text-ink sm:text-4xl">
+        Ready for a manager in your corner?
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-ink/80">
+        We take on a small number of creators at a time, so every
+        partnership gets real attention.
+      </p>
+      <a
+        href="/contact"
+        class="mt-8 inline-block cursor-pointer rounded-sm bg-ink px-7 py-3.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade"
+      >
+        Apply to work with us
+      </a>
+    </div>
+  </section>
+</Layout>
