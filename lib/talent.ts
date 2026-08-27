@@ -5,6 +5,11 @@ export type TalentEntry = {
   photo?: string;
   tone: "olive" | "terracotta" | "sage" | "stone";
   openSlot?: boolean;
+  socials?: {
+    tiktok?: string;
+    instagram?: string;
+    youtube?: string;
+  };
 };
 
 export const talent: TalentEntry[] = [
@@ -14,6 +19,11 @@ export const talent: TalentEntry[] = [
     bio: "Content creator represented by Jade Collective.",
     photo: "/talent/jax-kubo.png",
     tone: "olive",
+    socials: {
+      tiktok: "https://www.tiktok.com/@jaxkubo",
+      instagram: "https://www.instagram.com/itsjaxkubo",
+      youtube: "https://www.youtube.com/@jaxkubo",
+    },
   },
   {
     name: "Your Next Talent",

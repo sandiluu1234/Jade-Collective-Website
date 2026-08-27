@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PlaceholderMedia from "./PlaceholderMedia";
+import SocialLinks from "./SocialLinks";
 import { talent } from "@/lib/talent";
 
 export default function TalentRoster() {
@@ -46,6 +47,9 @@ export default function TalentRoster() {
                 <p className="mt-2 text-sm leading-relaxed text-espresso-700">
                   {person.bio}
                 </p>
+                {person.socials && (
+                  <SocialLinks socials={person.socials} name={person.name} className="mt-3" />
+                )}
               </div>
             </div>
           ))}
