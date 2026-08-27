@@ -1,9 +1,9 @@
 <div
-  class="pointer-events-none fixed right-[-4%] top-1/2 z-30 hidden -translate-y-1/2 opacity-[0.12] lg:block"
+  class="pointer-events-none fixed bottom-7 right-7 z-40 hidden h-24 w-16 items-center justify-center rounded-2xl border border-stone/50 bg-cream/80 shadow-sm backdrop-blur sm:flex"
   aria-hidden="true"
   data-hourglass
 >
-  <svg viewBox="0 0 100 160" class="h-[58vh] max-h-[620px] w-auto">
+  <svg viewBox="0 0 100 160" class="h-[86%] w-[86%]">
     <defs>
       <clipPath id="hourglass-top-clip">
         <polygon points="22,14 78,14 50,78" />
@@ -14,7 +14,7 @@
     </defs>
 
     <!-- neck stream -->
-    <rect x="49.3" y="76" width="1.4" height="8" class="fill-terracotta" opacity="0.6" />
+    <rect x="49.3" y="76" width="1.4" height="8" class="fill-terracotta" opacity="0.5" />
 
     <!-- sand -->
     <rect
@@ -25,6 +25,7 @@
       height="64"
       clip-path="url(#hourglass-top-clip)"
       class="fill-terracotta"
+      opacity="0.7"
     />
     <rect
       data-sand-bottom
@@ -34,16 +35,18 @@
       height="0"
       clip-path="url(#hourglass-bottom-clip)"
       class="fill-terracotta"
+      opacity="0.7"
     />
 
     <!-- glass outline -->
-    <rect x="18" y="6" width="64" height="6" rx="2" class="fill-none stroke-espresso" stroke-width="2.5" />
-    <rect x="18" y="148" width="64" height="6" rx="2" class="fill-none stroke-espresso" stroke-width="2.5" />
+    <rect x="18" y="6" width="64" height="6" rx="2" class="fill-none stroke-espresso" stroke-width="2.5" opacity="0.45" />
+    <rect x="18" y="148" width="64" height="6" rx="2" class="fill-none stroke-espresso" stroke-width="2.5" opacity="0.45" />
     <path
       d="M22,14 L78,14 L50,78 L50,82 L78,146 L22,146 L50,82 L50,78 Z"
       class="fill-none stroke-espresso"
       stroke-width="2.5"
       stroke-linejoin="round"
+      opacity="0.45"
     />
   </svg>
 </div>
