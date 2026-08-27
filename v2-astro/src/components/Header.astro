@@ -8,47 +8,71 @@ const links = [
 const current = Astro.url.pathname;
 ---
 
-<header class="border-b border-stone/60">
-  <div class="mx-auto flex max-w-content items-center justify-between px-6 py-6 sm:px-8">
-    <a href="/" class="font-display text-xl font-semibold tracking-tight text-ink cursor-pointer">
-      Jade Collective
-    </a>
-    <nav class="hidden items-center gap-10 md:flex">
-      {links.map((link) => {
-        const active = current === link.href;
-        return (
-          <a
-            href={link.href}
-            class:list={[
-              "font-body text-sm tracking-wide transition-colors duration-200 cursor-pointer",
-              active ? "text-jade" : "text-ink/80 hover:text-jade",
-            ]}
-          >
-            {link.label}
-          </a>
-        );
-      })}
-    </nav>
-    <a
-      href="/contact"
-      class="hidden rounded-sm bg-jade px-5 py-2.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark sm:inline-block cursor-pointer"
-    >
-      Work with us
-    </a>
-    <button
-      type="button"
-      id="menu-toggle"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      aria-label="Open menu"
-      class="cursor-pointer p-2 text-ink md:hidden"
-    >
-      <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+<header class="sticky top-4 z-50 px-4 sm:px-6">
+  <div class="mx-auto flex max-w-content items-center justify-between gap-3">
+    <span class="hidden shrink-0 items-center gap-1.5 font-body text-xs uppercase tracking-[0.14em] text-ink/70 sm:flex">
+      <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M10 2c-3 0-5.5 2.4-5.5 5.4 0 4 5.5 10.6 5.5 10.6s5.5-6.6 5.5-10.6C15.5 4.4 13 2 10 2Z"></path>
+        <circle cx="10" cy="7.5" r="1.8"></circle>
       </svg>
-    </button>
+      San Diego, CA
+    </span>
+
+    <div class="mx-auto flex items-center gap-1 rounded-full border border-stone/70 bg-bone/75 p-1.5 shadow-sm backdrop-blur">
+      <a
+        href="/"
+        class="mr-1 flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-jade font-display text-sm font-semibold text-bone"
+        aria-label="Jade Collective — home"
+      >
+        JC
+      </a>
+      <nav class="hidden items-center gap-1 md:flex">
+        {links.slice(1).map((link) => {
+          const active = current === link.href;
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "cursor-pointer rounded-full px-4 py-2 font-body text-sm transition-colors duration-200",
+                active ? "bg-ink text-bone" : "text-ink/80 hover:bg-ink/5",
+              ]}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </nav>
+      <a
+        href="/contact"
+        class="hidden cursor-pointer items-center gap-1.5 rounded-full bg-jade px-4 py-2 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark sm:flex"
+      >
+        <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="2.5" y="4.5" width="15" height="11" rx="2"></rect>
+          <path d="M3 6l7 5 7-5"></path>
+        </svg>
+        Work with me
+      </a>
+      <button
+        type="button"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+        class="ml-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full text-ink md:hidden"
+      >
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+
+    <span class="w-[92px] shrink-0 sm:block hidden" aria-hidden="true"></span>
   </div>
-  <nav id="mobile-menu" class="hidden flex-col border-t border-stone/60 px-6 py-4 md:hidden">
+
+  <nav
+    id="mobile-menu"
+    class="mx-auto mt-2 hidden max-w-content flex-col overflow-hidden rounded-3xl border border-stone/70 bg-bone px-4 py-2 shadow-sm md:hidden"
+  >
     {links.map((link) => (
       <a
         href={link.href}

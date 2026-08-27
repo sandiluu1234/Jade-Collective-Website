@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroBackground from "../components/HeroBackground.astro";
+import AudioPlayerWidget from "../components/AudioPlayerWidget.astro";
 
 const services = [
   {
@@ -19,30 +21,53 @@ const services = [
 
 <Layout title="Jade Collective | Talent Management for Micro Creators">
   <!-- Hero -->
-  <section class="mx-auto max-w-content px-6 pb-20 pt-20 sm:px-8 sm:pt-28">
-    <div class="max-w-2xl">
-      <h1 class="text-5xl font-semibold leading-[1.08] text-ink sm:text-6xl lg:text-7xl">
-        For the creators the world hasn&rsquo;t caught onto yet.
-      </h1>
-      <p class="mt-7 max-w-xl text-lg leading-relaxed text-ink/80">
-        Jade Collective is a boutique talent management studio for micro
-        creators. I&rsquo;m here to handle the brand deals, the negotiations,
-        and the strategy — so you can stay focused on the work only you can
-        make.
-      </p>
-      <div class="mt-9 flex flex-wrap items-center gap-8">
-        <a
-          href="/contact"
-          class="cursor-pointer rounded-sm bg-jade px-7 py-3.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark"
-        >
-          Work with us
-        </a>
-        <a
-          href="/services"
-          class="cursor-pointer font-body text-sm font-medium text-ink underline decoration-stone underline-offset-4 transition-colors duration-200 hover:text-jade hover:decoration-jade"
-        >
-          See how it works
-        </a>
+  <section class="relative overflow-hidden px-6 pb-28 pt-16 sm:px-8 sm:pt-20 lg:pl-20">
+    <HeroBackground />
+
+    <span
+      class="pointer-events-none absolute left-4 top-1/2 hidden w-40 -translate-x-1/2 -translate-y-1/2 -rotate-90 text-center font-body text-xs uppercase tracking-[0.32em] text-ink/45 lg:block"
+    >
+      Representation &middot; Strategy &middot; Deals
+    </span>
+
+    <div class="mx-auto max-w-content">
+      <div class="max-w-2xl">
+        <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-stone/70 bg-bone/70 px-4 py-1.5 font-body text-xs uppercase tracking-[0.16em] text-ink/70 backdrop-blur">
+          <span class="h-1.5 w-1.5 rounded-full bg-clay"></span>
+          Hello, we&rsquo;re Jade Collective. A &mdash;
+        </p>
+        <h1 class="text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl lg:text-[5rem] lg:leading-[1.03]">
+          For the creators
+          <br />
+          the world hasn&rsquo;t
+          <br />
+          caught onto yet.
+        </h1>
+        <p class="mt-7 max-w-xl text-lg leading-relaxed text-ink/80">
+          Jade Collective is a boutique talent management studio for micro
+          creators. I&rsquo;m here to handle the brand deals, the negotiations,
+          and the strategy — so you can stay focused on the work only you can
+          make.
+        </p>
+
+        <div class="mt-10 max-w-sm">
+          <AudioPlayerWidget src="/audio/meet-jade-collective.wav" caption="Meet Jade Collective" />
+        </div>
+
+        <div class="mt-14 flex flex-wrap items-center gap-8">
+          <a
+            href="/contact"
+            class="cursor-pointer rounded-sm bg-jade px-7 py-3.5 font-body text-sm font-medium text-bone transition-colors duration-200 hover:bg-jade-dark"
+          >
+            Work with us
+          </a>
+          <a
+            href="/services"
+            class="cursor-pointer font-body text-sm font-medium text-ink underline decoration-stone underline-offset-4 transition-colors duration-200 hover:text-jade hover:decoration-jade"
+          >
+            See how it works
+          </a>
+        </div>
       </div>
     </div>
   </section>

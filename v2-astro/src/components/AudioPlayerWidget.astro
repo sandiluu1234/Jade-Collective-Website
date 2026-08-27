@@ -1,0 +1,173 @@
+---
+interface Props {
+  src: string;
+  caption: string;
+  class?: string;
+}
+const { src, caption, class: className = "" } = Astro.props;
+const uid = crypto.randomUUID().slice(0, 8);
+---
+
+<div class={`audio-widget relative mx-auto w-full max-w-md pb-9 ${className}`} data-audio-widget>
+  <div class="flex items-center gap-4 rounded-[28px] border border-stone bg-bone/80 px-5 py-4 shadow-[0_1px_0_0_rgba(38,36,31,0.06)] backdrop-blur sm:gap-5 sm:px-6 sm:py-5">
+    <span class="dial h-11 w-11 shrink-0 rounded-full border-2 border-ink/70 sm:h-14 sm:w-14" aria-hidden="true">
+      <span class="block h-full w-full rounded-full border border-ink/30" style="margin: 22%;"></span>
+    </span>
+
+    <div class="min-w-0 flex-1">
+      <p class="truncate font-body text-xs font-medium uppercase tracking-[0.14em] text-ink/70">
+        {caption}
+      </p>
+      <div class="mt-2 flex items-center gap-3">
+        <span class="w-9 shrink-0 font-body text-[11px] tabular-nums text-ink/60" data-current-time>0:00</span>
+        <input
+          type="range"
+          class="progress-range w-full"
+          min="0"
+          max="100"
+          value="0"
+          step="0.1"
+          aria-label={`Seek — ${caption}`}
+          data-progress
+        />
+        <span class="w-9 shrink-0 text-right font-body text-[11px] tabular-nums text-ink/60" data-duration>0:00</span>
+      </div>
+    </div>
+
+    <span class="dial h-11 w-11 shrink-0 rounded-full border-2 border-ink/70 sm:h-14 sm:w-14" aria-hidden="true">
+      <span class="block h-full w-full rounded-full border border-ink/30" style="margin: 22%;"></span>
+    </span>
+  </div>
+
+  <button
+    type="button"
+    class="play-btn absolute bottom-0 left-1/2 flex h-14 w-14 -translate-x-1/2 translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-ink text-bone shadow-md transition-transform duration-200 hover:scale-105"
+    aria-pressed="false"
+    aria-label={`Play — ${caption}`}
+    data-play-btn
+  >
+    <svg data-icon-play viewBox="0 0 24 24" class="h-5 w-5 translate-x-0.5" fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7z"></path>
+    </svg>
+    <svg data-icon-pause viewBox="0 0 24 24" class="hidden h-5 w-5" fill="currentColor" aria-hidden="true">
+      <path d="M7 5h4v14H7zM13 5h4v14h-4z"></path>
+    </svg>
+  </button>
+
+  <audio data-audio-el preload="metadata" src={src}></audio>
+</div>
+
+<style>
+  .progress-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-stone) 70%, transparent);
+    outline: none;
+  }
+  .progress-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-ink);
+    cursor: pointer;
+  }
+  .progress-range::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-ink);
+    cursor: pointer;
+  }
+  .audio-widget[data-playing="true"] .dial {
+    animation: audio-widget-spin 6s linear infinite;
+  }
+  @keyframes audio-widget-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .audio-widget[data-playing="true"] .dial {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  function formatTime(seconds: number) {
+    if (!Number.isFinite(seconds)) return "0:00";
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m}:${String(s).padStart(2, "0")}`;
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-audio-widget]").forEach((widget) => {
+    const audio = widget.querySelector<HTMLAudioElement>("[data-audio-el]");
+    const playBtn = widget.querySelector<HTMLButtonElement>("[data-play-btn]");
+    const range = widget.querySelector<HTMLInputElement>("[data-progress]");
+    const currentEl = widget.querySelector<HTMLElement>("[data-current-time]");
+    const durationEl = widget.querySelector<HTMLElement>("[data-duration]");
+    const iconPlay = widget.querySelector<SVGElement>("[data-icon-play]");
+    const iconPause = widget.querySelector<SVGElement>("[data-icon-pause]");
+    if (!audio || !playBtn || !range || !currentEl || !durationEl || !iconPlay || !iconPause) return;
+
+    let seeking = false;
+
+    audio.addEventListener("loadedmetadata", () => {
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (seeking) return;
+      if (audio.duration) {
+        range.value = String((audio.currentTime / audio.duration) * 100);
+      }
+      currentEl.textContent = formatTime(audio.currentTime);
+    });
+
+    audio.addEventListener("ended", () => {
+      widget.dataset.playing = "false";
+      iconPlay.classList.remove("hidden");
+      iconPause.classList.add("hidden");
+      playBtn.setAttribute("aria-pressed", "false");
+    });
+
+    range.addEventListener("input", () => {
+      seeking = true;
+      if (audio.duration) {
+        const t = (Number(range.value) / 100) * audio.duration;
+        currentEl.textContent = formatTime(t);
+      }
+    });
+
+    range.addEventListener("change", () => {
+      if (audio.duration) {
+        audio.currentTime = (Number(range.value) / 100) * audio.duration;
+      }
+      seeking = false;
+    });
+
+    playBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        widget.dataset.playing = "true";
+        iconPlay.classList.add("hidden");
+        iconPause.classList.remove("hidden");
+        playBtn.setAttribute("aria-pressed", "true");
+        playBtn.setAttribute("aria-label", playBtn.getAttribute("aria-label")!.replace("Play", "Pause"));
+      } else {
+        audio.pause();
+        widget.dataset.playing = "false";
+        iconPlay.classList.remove("hidden");
+        iconPause.classList.add("hidden");
+        playBtn.setAttribute("aria-pressed", "false");
+        playBtn.setAttribute("aria-label", playBtn.getAttribute("aria-label")!.replace("Pause", "Play"));
+      }
+    });
+  });
+</script>
