@@ -1,11 +1,11 @@
 ---
 interface Props {
   src: string;
+  fallbackSrc?: string;
   caption: string;
   class?: string;
 }
-const { src, caption, class: className = "" } = Astro.props;
-const uid = crypto.randomUUID().slice(0, 8);
+const { src, fallbackSrc, caption, class: className = "" } = Astro.props;
 ---
 
 <div class={`audio-widget relative mx-auto w-full max-w-md pb-9 ${className}`} data-audio-widget>
@@ -15,7 +15,7 @@ const uid = crypto.randomUUID().slice(0, 8);
     </span>
 
     <div class="min-w-0 flex-1">
-      <p class="truncate font-body text-xs font-medium uppercase tracking-[0.14em] text-espresso/70">
+      <p class="line-clamp-2 font-body text-sm font-medium leading-snug text-espresso/80">
         {caption}
       </p>
       <div class="mt-2 flex items-center gap-3">
@@ -54,7 +54,10 @@ const uid = crypto.randomUUID().slice(0, 8);
     </svg>
   </button>
 
-  <audio data-audio-el preload="metadata" src={src}></audio>
+  <audio data-audio-el preload="metadata">
+    <source src={src} />
+    {fallbackSrc && <source src={fallbackSrc} />}
+  </audio>
 </div>
 
 <style>
