@@ -8,34 +8,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Japandi Organic palette — client-supplied brand reference
+        // Japandi Organic palette — sampled directly from the client's
+        // Sherwin-Williams reference swatches, with hover/text shades
+        // derived and checked against WCAG AA (4.5:1 minimum).
         cream: {
-          50: "#FAF8F3",
-          100: "#F4EFE4",
-          200: "#EAE1CD",
+          50: "#EFEDE9",
+          100: "#E7E0D5",
+          200: "#E4DECB",
         },
         stone: {
-          300: "#CBBFA4",
-          400: "#B3A488",
+          300: "#C7BCAC",
+          400: "#ABA193",
         },
         terracotta: {
-          500: "#B25E3D",
-          600: "#984E32",
-          700: "#7C4128",
+          500: "#A96E52",
+          600: "#83553F",
+          700: "#6C4634",
         },
         sage: {
-          300: "#C2CBA8",
-          400: "#A6B489",
+          300: "#AAAC92",
+          400: "#9B9E7F",
         },
         olive: {
-          500: "#75834F",
-          600: "#5B6740",
-          700: "#454E30",
+          500: "#777963",
+          600: "#606248",
+          700: "#50523C",
         },
         espresso: {
-          700: "#4A4237",
-          800: "#3A342B",
-          900: "#2B2620",
+          700: "#6F6863",
+          800: "#5F5852",
+          900: "#504841",
         },
       },
       fontFamily: {

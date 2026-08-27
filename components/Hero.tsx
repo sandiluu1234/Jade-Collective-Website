@@ -20,7 +20,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="cursor-pointer rounded-full bg-terracotta-500 px-7 py-3.5 font-body text-sm font-medium text-cream-50 transition-colors duration-200 hover:bg-terracotta-600"
+              className="cursor-pointer rounded-full bg-terracotta-600 px-7 py-3.5 font-body text-sm font-medium text-cream-50 transition-colors duration-200 hover:bg-terracotta-700"
             >
               Start a conversation
             </a>

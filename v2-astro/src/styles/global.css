@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Japandi Organic palette — matches site 1 */
-  --color-cream: #faf8f3;
-  --color-stone: #cbbfa4;
-  --color-terracotta: #b25e3d;
-  --color-terracotta-dark: #984e32;
-  --color-sage: #a6b489;
-  --color-olive: #5b6740;
-  --color-olive-dark: #454e30;
-  --color-espresso: #2b2620;
+  /* Japandi Organic palette — sampled directly from the client's
+     Sherwin-Williams reference swatches (matches site 1's tailwind.config.ts).
+     terracotta-dark is a darkened, WCAG-AA-checked variant for small text;
+     the base terracotta stays true to the swatch for decorative use. */
+  --color-cream: #efede9;
+  --color-stone: #c7bcac;
+  --color-terracotta: #a96e52;
+  --color-terracotta-dark: #83553f;
+  --color-sage: #9b9e7f;
+  --color-olive: #606248;
+  --color-olive-dark: #50523c;
+  --color-espresso: #504841;
 
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;

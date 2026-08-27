@@ -7,7 +7,7 @@ type PlaceholderMediaProps = {
 
 const toneStyles: Record<NonNullable<PlaceholderMediaProps["tone"]>, string> = {
   olive: "from-olive-600 to-olive-700 text-cream-50",
-  terracotta: "from-terracotta-500 to-terracotta-700 text-cream-50",
+  terracotta: "from-terracotta-600 to-terracotta-700 text-cream-50",
   sage: "from-sage-300 to-sage-400 text-espresso-900",
   stone: "from-stone-300 to-stone-400 text-espresso-900",
 };
