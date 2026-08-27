@@ -37,7 +37,7 @@ export default function Contact() {
                 Email
               </dt>
               <dd className="mt-1 text-lg text-espresso-900">
-                hello@jadecollective.co
+                partnerships@jadecollectiveagency.com
               </dd>
             </div>
             <div>

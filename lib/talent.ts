@@ -11,9 +11,8 @@ export const talent: TalentEntry[] = [
   {
     name: "Jax Kubo",
     role: "Creator",
-    bio: "Content creator represented by Jade Collective. Photo and full bio coming soon.",
-    // Real photo pending upload — drop the file in /public/talent/ and set
-    // `photo: "/talent/jax-kubo.jpg"` to replace the placeholder block below.
+    bio: "Content creator represented by Jade Collective.",
+    photo: "/talent/jax-kubo.png",
     tone: "olive",
   },
   {
